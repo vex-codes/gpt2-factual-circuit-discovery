@@ -2,7 +2,7 @@
 
 [![Paper PDF](https://img.shields.io/badge/Paper-PDF-red.svg)](paper/main.pdf)
 [![Code-Colab](https://img.shields.io/badge/Colab-Reproduce%20in%20Browser-blue.svg)](#one-click-reproduction)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 
 **Author:** Vedansh Kumar (`vedanshk10@gmail.com`)  
@@ -56,7 +56,7 @@ To run the complete pipeline and regenerate all figures and metrics locally or i
 
 ```bash
 # Clone the repository
-git clone [https://github.com/](https://github.com/)vex-codes/gpt2-factual-circuit-discovery.git
+git clone https://github.com/vex-codes/gpt2-factual-circuit-discovery.git
 cd gpt2-factual-circuit-discovery
 
 # Install dependencies
