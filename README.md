@@ -5,7 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 
-**Author:** Vedansh Kumar 
+**Author:** Vedansh Kumar (`vedanshk10@gmail.com`)  
 **Target Architecture:** `gpt2-small` (124M parameters, 12 layers, 12 heads/layer, $d_{\text{model}} = 768$)
 
 ---
