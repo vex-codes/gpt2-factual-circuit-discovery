@@ -1,0 +1,9 @@
+torch>=2.0.0
+transformer_lens>=1.14.0
+jaxtyping
+einops
+pandas
+tabulate
+matplotlib
+seaborn
+numpy
