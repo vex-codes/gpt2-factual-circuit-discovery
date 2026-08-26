@@ -125,11 +125,12 @@ The activation patching sweep (Figure~\ref{fig:fig2}) isolates the causal path o
     \item \textbf{Final Vocabulary Projection (Layers 10--11):} Causal weight is concentrated at the prompt-final position, where direct writing heads project the fact into logits.
 \end{enumerate}
 
-\begin{table}[h]
+\begin{table}[htbp]
 \centering
 \small
 \caption{\textbf{Empirical Knockout Ablation Results across 11 Experimental Conditions.} Logit diff drop (\%) measures necessity.}
 \label{tab:ablation}
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{@{}lcccc@{}}
 \toprule
 \textbf{Condition} & $\Delta \mathcal{L}$ & \textbf{Drop (\%)} & \textbf{Acc (\%)} & \textbf{Heads} \\ \midrule
@@ -144,10 +145,11 @@ Ablate All Suppressors & 11.98 & -14.56 & 100.00 & 2 \\ \midrule
 Control 1 (\texttt{L0H0}) & 10.46 & 0.04 & 100.00 & 1 \\
 Control 2 (\texttt{L4H4}) & 10.46 & 0.03 & 100.00 & 1 \\
 Control 3 (3 Random) & 10.46 & -0.04 & 100.00 & 3 \\ \bottomrule
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\columnwidth]{figure3_ablation_experiments.pdf}
 \caption{\textbf{Circuit Ablation Battery.} (A) Logit difference collapse under selective head mean-ablation. (B) Task top-1 accuracy degradation across conditions.}
