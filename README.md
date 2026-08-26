@@ -61,12 +61,17 @@ pip install -r requirements.txt
 python reproduce_all.py
 ```
 
+---
+
 ## Citation
+
 If you build upon this work or utilize the experimental pipeline, please cite:
 
+```bibtex
 @article{kumar2026causal,
   title={Causal Tracing and Circuit Discovery in Small Open-Weight Transformers: Isolating Factual Retrieval and Suppression Mechanisms},
   author={Kumar, Vedansh},
   journal={Independent Preprint},
   year={2026}
 }
+```
