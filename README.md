@@ -52,15 +52,10 @@ Mean-ablation confirms that knocking out the 3 core writing heads collapses the 
 
 ## One-Click Reproduction
 
-To run the complete pipeline and regenerate all figures and metrics locally or in Colab:
+To run the complete pipeline and regenerate all figures and metrics locally:
 
 ```bash
-# Clone the repository
-git clone https://github.com/vex-codes/gpt2-factual-circuit-discovery.git
+git clone [https://github.com/vex-codes/gpt2-factual-circuit-discovery.git](https://github.com/vex-codes/gpt2-factual-circuit-discovery.git)
 cd gpt2-factual-circuit-discovery
-
-# Install dependencies
-pip install torch transformer_lens jaxtyping einops pandas tabulate matplotlib seaborn
-
-# Run end-to-end pipeline (reproduces Figs 1, 2, 3 and Table 1)
+pip install -r requirements.txt
 python reproduce_all.py
