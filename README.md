@@ -55,7 +55,7 @@ Mean-ablation confirms that knocking out the 3 core writing heads collapses the 
 To run the complete pipeline and regenerate all figures and metrics locally:
 
 ```bash
-git clone [https://github.com/vex-codes/gpt2-factual-circuit-discovery.git](https://github.com/vex-codes/gpt2-factual-circuit-discovery.git)
+git clone https://github.com/vex-codes/gpt2-factual-circuit-discovery.git
 cd gpt2-factual-circuit-discovery
 pip install -r requirements.txt
 python reproduce_all.py
