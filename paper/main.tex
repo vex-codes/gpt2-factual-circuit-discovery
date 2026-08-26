@@ -1,3 +1,4 @@
+\pdfoutput=1
 \documentclass[10pt,twocolumn,letterpaper]{article}
 
 \usepackage[margin=0.75in]{geometry}
@@ -86,14 +87,14 @@ To test circuit necessity without inducing out-of-distribution LayerNorm scaling
 \mathbf{a}_{l, h}^{(i)}[p] \leftarrow \bar{\mathbf{a}}_{l, h}[p] = \frac{1}{|\mathcal{D}|} \sum_{k=1}^{|\mathcal{D}|} \mathbf{a}_{l, h}^{(k)}[p]
 \end{equation}
 
-\section{Empirical Results}
-
 \begin{figure*}[t]
 \centering
-\includegraphics[width=\textwidth]{figure1_dla_and_logit_lens.pdf}
+\includegraphics[width=0.98\textwidth]{figure1_dla_and_logit_lens.pdf}
 \caption{\textbf{Direct Logit Attribution and Logit Lens Trajectory.} (A) Logit Lens across intermediate layers revealing a sharp transition at Layer 8 and a peak at Layer 10 ($\Delta \mathcal{L} = +23.8$). (B) Layer-by-layer decomposition into Attention and MLP components. (C) $12 \times 12$ head-level DLA heatmap highlighting candidate writing heads \texttt{L9H8}, \texttt{L10H0}, and \texttt{L8H11}.}
 \label{fig:fig1}
 \end{figure*}
+
+\section{Empirical Results}
 
 \subsection{Dataset Construction \& Baseline Metrics}
 We constructed an isomorphic benchmark of $N=50$ single-token factual counterfactual pairs using a calibrated two-shot schema. On this benchmark, unmodified \texttt{gpt2-small} achieves $100.0\%$ clean top-1 accuracy with a mean clean logit difference of $\Delta \mathcal{L} = +10.4602$.
@@ -111,13 +112,13 @@ Conversely, head \texttt{L10H7} acts as a strong negative suppressor ($\text{DLA
 
 \begin{figure*}[t]
 \centering
-\includegraphics[width=\textwidth]{figure2_activation_patching.pdf}
+\includegraphics[width=0.98\textwidth]{figure2_activation_patching.pdf}
 \caption{\textbf{Causal Tracing via Activation Patching.} (A) Residual stream patching across token positions and layers, showing the causal transfer from the subject position (Token 18) in early layers to the final position (Token 19) in late layers. (B) MLP patching heatmap. (C) Attention head output patching at the final prompt token position. (D) Head output patching at the subject token position.}
 \label{fig:fig2}
 \end{figure*}
 
 \subsection{Causal Tracing of Information Flow}
-The activation patching sweep (Figure~\ref{fig:fig2}A) isolates the causal path of factual retrieval:
+The activation patching sweep (Figure~\ref{fig:fig2}) isolates the causal path of factual retrieval:
 \begin{enumerate}
     \item \textbf{Subject Representation (Layers 0--7):} Patching the residual stream at the subject token position alone achieves $\approx 1.00$ logit recovery.
     \item \textbf{Causal Transfer Locus (Layers 8--9):} The causal recovery transfers from the subject token index to the final prompt index.
@@ -146,7 +147,7 @@ Control 3 (3 Random) & 10.46 & -0.04 & 100.00 & 3 \\ \bottomrule
 \end{tabular}
 \end{table}
 
-\begin{figure}[t]
+\begin{figure}[h]
 \centering
 \includegraphics[width=\columnwidth]{figure3_ablation_experiments.pdf}
 \caption{\textbf{Circuit Ablation Battery.} (A) Logit difference collapse under selective head mean-ablation. (B) Task top-1 accuracy degradation across conditions.}
@@ -156,11 +157,11 @@ Control 3 (3 Random) & 10.46 & -0.04 & 100.00 & 3 \\ \bottomrule
 \subsection{Circuit Isolation via Knockout Ablation}
 To verify circuit necessity, we performed mean-ablation across 11 distinct conditions (Table~\ref{tab:ablation} and Figure~\ref{fig:fig3}).
 
-Ablating individual writers produces moderate degradation ($15.53\%$ to $29.74\%$ logit drop). When all three core writing heads (\texttt{L9H8}, \texttt{L10H0}, \texttt{L8H11}) are ablated simultaneously, the circuit collapses: logit difference drops by **$87.46\%$** ($\Delta \mathcal{L} = 1.31$) and accuracy drops to **$28.0\%$**.
+Ablating individual writers produces moderate degradation ($15.53\%$ to $29.74\%$ logit drop). When all three core writing heads (\texttt{L9H8}, \texttt{L10H0}, \texttt{L8H11}) are ablated simultaneously, the circuit collapses: logit difference drops by \textbf{87.46\%} ($\Delta \mathcal{L} = 1.31$) and accuracy drops to \textbf{28.0\%}.
 
 In contrast, mean-ablating random control heads (\texttt{L0H0}, \texttt{L4H4}, or three random heads simultaneously) induces $\le 0.04\%$ variance with zero accuracy loss, confirming the specificity of the isolated circuit.
 
-Finally, ablating the negative suppressor heads (\texttt{L10H7} and \texttt{L11H10}) yields a **$+14.56\%$ increase in logit difference**, demonstrating the disinhibition of factual recall.
+Finally, ablating the negative suppressor heads (\texttt{L10H7} and \texttt{L11H10}) yields a \textbf{+14.56\% increase in logit difference}, demonstrating the disinhibition of factual recall.
 
 \section{Discussion \& Limitations}
 Our results show that factual association in \texttt{gpt2-small} is not uniformly distributed, but rather governed by a sparse circuit:
